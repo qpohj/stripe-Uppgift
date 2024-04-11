@@ -1,6 +1,6 @@
-import { useCart } from "../context/CartContext";
-import "../styles/Header.css"
 import { BsCart2 } from "react-icons/bs";
+import { useCart } from "../context/CartContext";
+import "../styles/Header.css";
 
 const Header = () => {
     const { cart } = useCart()

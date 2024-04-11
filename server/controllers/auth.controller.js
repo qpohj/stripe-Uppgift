@@ -2,6 +2,7 @@ const fs = require("fs").promises
 const bcrypt = require("bcrypt")
 const fetchUsers = require("../utils/fetchUsers")
 
+
 const register = async (req, res) => {
 
     const { email, password } = req.body

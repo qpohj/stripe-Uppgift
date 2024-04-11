@@ -1,6 +1,6 @@
+import CartProvider from "../context/CartContext"
 import Header from "./Header"
 import ProductList from "./ProductList"
-import CartProvider from "../context/CartContext"
 
 const ShoppingCart = () => (
     <CartProvider>
