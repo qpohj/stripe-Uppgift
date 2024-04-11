@@ -5,17 +5,7 @@ const Payment = () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify([
-                {
-                    product: "price_1OjJm3KDYG89Sk1MV6TKHCWy",
-                    quantity: 3
-                },
-                {
-                    product: "price_1OjJkTKDYG89Sk1MeWycVhcr",
-                    quantity: 1
-                }
-            ])
+            }
         })
         const data = await response.json()
         localStorage.setItem("sessionId", JSON.stringify(data.sessionId))
@@ -24,7 +14,7 @@ const Payment = () => {
 
     return (
         <div>
-            <button onClick={handlePayment}>GE MIG PENGAR!!!!</button>
+            <button onClick={handlePayment}>Go to purchase</button>
         </div>
     )
 }
