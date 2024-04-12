@@ -1,34 +1,28 @@
 // frontend/src/LoginForm.tsx
 import React, { useState } from 'react';
 
-const LoginForm: React.FC = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+const LoginForm = () => {
 
-
-    
     const handleLogin = async () => {
+        
         try {
             const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                credentials: 'include',
-                body: JSON.stringify({ username, password })
+                credentials: 'include'
             });
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message);
+                throw new Error("We got an error");
             }
 
-            setError('');
             // Redirect or update UI after successful login
         } catch (error) {
-            setError(error.message);
+            //sadasdsa
         }
     };
 
@@ -37,13 +31,11 @@ const LoginForm: React.FC = () => {
         <div>
             <form>
                 <h2>Login</h2>
-                <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-                <input type="password" placeholder="Password" autoComplete='' value={password} onChange={e => setPassword(e.target.value)} />
                 <button onClick={handleLogin}>Login</button>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
             </form>
         </div>
-    );
-};
+    )
+}
 
 export default LoginForm;
