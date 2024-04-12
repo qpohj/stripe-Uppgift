@@ -1,6 +1,6 @@
 # Stripe Project - Pontus
 
-## Dependencies
+### Dependencies
     server is made out of nodejs express, third party api thats been used is stripe. we are using bcrypt for encryption, cookie session for storing user sessions. cors for cross origin and dotenv.
 
 ### CheckList
