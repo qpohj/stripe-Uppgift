@@ -8,9 +8,9 @@ require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 
-const stripeRouter = require('./routers/stripe.router');
-const userRouter = require('./routers/users.router');
-const authRouter = require('./routers/auth.router');
+const stripeRouter = require('./routes/stripe.router');
+const authRouter = require('./routes/auth.router');
+const userRouter = require('./routes/user.router')
 
 const app = express();
 //#endregion
@@ -31,29 +31,17 @@ app.use(cookieSession({
 
 //#region Routes
 // Route for fetching products
-app.get("/products", async (req, res) => {
-    try {
-        // Fetch products from Stripe API
-        const products = await stripe.products.list({
-            expand: ["data.default_price"]
-        });
-        res.status(200).json(products);
-    } catch (error) {
-        // Handle errors
-        console.error("Error fetching products:", error);
-        res.status(500).json({ error: "Failed to fetch products" });
-    }
-});
 
 
 
 
 // Mount routers
-app.use('/users', userRouter);
 app.use('/auth', authRouter);
-
-
 app.use('/payments', stripeRouter);
+app.use("/users", userRouter)
+
+
+
 //#endregion
 
 //#region Error Handling Middleware

@@ -1,6 +1,7 @@
 import CartProvider from "../context/CartContext"
-import Header from "./Header"
-import ProductList from "./ProductList"
+import Footer from "../components/Footer"
+import Header from "../components/Header"
+import ProductList from "../components/ProductList"
 
 
 const ShoppingCart = () => {
@@ -8,6 +9,7 @@ const ShoppingCart = () => {
         <CartProvider>
             <Header />
             <ProductList />
+            <Footer />
         </CartProvider>
     )
 }

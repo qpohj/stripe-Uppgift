@@ -1,10 +1,10 @@
 const fs = require("fs").promises
 const bcrypt = require("bcrypt")
 const fetchUsers = require("../utils/fetchUsers")
+const initStripe = require("../stripe")
 
 
 const register = async (req, res) => {
-
     const { email, password } = req.body
 
     //Kolla så att användaren inte redan finns
@@ -49,12 +49,13 @@ const login = async (req, res) => {
     res.status(200).json(userExists.email)
 }
 
-const logout = (req, res) => {
+const logout = async (req, res) => {
     req.session = null
     res.status(200).json("Successfully logged out")
 }
 
-const authorize = (req, res) => {
+
+const authorize = async (req, res) => {
     if (!req.session.user) {
         return res.status(401).json("You are not logged in")
     }

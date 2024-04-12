@@ -4,7 +4,7 @@ const Logout = () => {
     const [user, setUser] = useState<string>("")
 
     const logout = async () => {
-        const response = await fetch("http://localhost:3000/auth/logout", {
+        const response = await fetch("http://localhost:3000/logout", {
             method: "POST",
             credentials: "include"
         })

@@ -6,9 +6,10 @@ const ProductList = () => {
     const [productLoading, setProductLoading] = useState(true)
     const { addToCart } = useCart()
 
+    
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await fetch("http://localhost:3000/products")
+            const response = await fetch("http://localhost:3000/")
             const data = await response.json()
             setProducts(data.data)
             setProductLoading(false)
