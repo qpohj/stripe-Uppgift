@@ -4,7 +4,7 @@
     server is made out of nodejs express, third party api thats been used is stripe. we are using bcrypt for encryption, cookie session for storing user sessions. cors for cross origin and dotenv.
 
 ### CheckList
-1. [x]Produkter ska listas på en sida. 
+1. - [x]Produkter ska listas på en sida. 
 2. [x]Produkter som visas och köps skall hämtas ifrån Stripe.
 3. []Det ska gå att lägga till produkter i en kundvagn.
 4. []Baserad på kundvagnen skall det gå att lägga en order genom Stripe.
