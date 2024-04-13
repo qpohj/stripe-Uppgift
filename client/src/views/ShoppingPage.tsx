@@ -4,7 +4,7 @@ import Header from "../components/Header"
 import ProductList from "../components/ProductList"
 
 
-const ShoppingCart = () => {
+const ShoppingPage = () => {
     return (
         <CartProvider>
             <Header />
@@ -14,4 +14,4 @@ const ShoppingCart = () => {
     )
 }
 
-export default ShoppingCart
+export default ShoppingPage

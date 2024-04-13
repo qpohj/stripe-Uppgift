@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
-import LoginForm from "./LoginForm"
+import LoginForm from "../components/LoginForm"
 import ProductList from "../components/ProductList"
 import { useNavigate } from "react-router-dom"
+import LoginPage from "./LoginPage"
 
 const Home = () => {
     // check if user is logged in with a session.
@@ -48,7 +49,7 @@ const Home = () => {
     return (
         <div>
             <Header />
-            {isAuthenticated ? <ProductList /> : <LoginForm onAuthentication={handleAuthentication} />}
+            {isAuthenticated ? <ProductList /> : <LoginPage />}
             <Footer />
         </div>
 

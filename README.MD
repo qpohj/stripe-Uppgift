@@ -6,7 +6,7 @@
 ### CheckList
 - [x] Produkter ska listas på en sida. 
 - [x] Produkter som visas och köps skall hämtas ifrån Stripe.
-- [ ] Det ska gå att lägga till produkter i en kundvagn.
+- [x] Det ska gå att lägga till produkter i en kundvagn.
 - [ ] Baserad på kundvagnen skall det gå att lägga en order genom Stripe.
 - [ ] Man skall kunna registrera sig som en användare i webbshoppen. Detta skall resultera i att en ”Customer” skapas i Stripe och användaren sparas i en JSON-fil. (samtliga lösenord skall sparas krypterade).
 - [ ] Man skall kunna logga in som kund. Den inloggade kunden (som även är sparad i Stripe) skall användas vid placering av order.

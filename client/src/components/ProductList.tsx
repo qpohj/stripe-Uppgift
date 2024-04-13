@@ -9,7 +9,7 @@ const ProductList = () => {
     
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await fetch("http://localhost:3000/")
+            const response = await fetch("http://localhost:3000/shop/products")
             const data = await response.json()
             setProducts(data.data)
             setProductLoading(false)
