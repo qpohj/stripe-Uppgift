@@ -38,7 +38,7 @@ app.use(cookieSession({
 // Mount routers
 app.use('/auth', authRouter);
 app.use('/shop', stripeRouter);
-// app.use("/users", userRouter)
+app.use("/users", userRouter)
 
 
 

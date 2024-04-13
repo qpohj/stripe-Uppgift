@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
-import LoginForm from "../components/LoginForm"
 import ProductList from "../components/ProductList"
-import { useNavigate } from "react-router-dom"
 import LoginPage from "./LoginPage"
 
 const Home = () => {
@@ -24,7 +23,7 @@ const Home = () => {
         const fetchUserData = async () => {
             try {
                 // Simulated fetching user data. You should replace this with your actual API call.
-                const response = await fetch("http://localhost:3000/");
+                const response = await fetch("http://localhost:3000/users");
                 if (!response.ok) {
                     throw new Error("User not found");
                 }
