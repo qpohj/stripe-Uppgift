@@ -1,8 +1,8 @@
 # Stripe Project - Pontus
 
 ## Setup 
-    npm init -y. go into client and server folder in two seperate terminals. run npm install
-    .env file needs to be made.
+    npm init -y both directories. go into client and server folder in two seperate terminals. run npm install
+    .env file needs to be made. in server root
     
 
 ### Dependencies
