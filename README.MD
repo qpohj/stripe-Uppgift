@@ -1,7 +1,14 @@
 # Stripe Project - Pontus
 
+## Setup 
+    npm init -y. go into client and server folder in two seperate terminals. run npm install
+    .env file needs to be made.
+    
+
 ### Dependencies
-    server is made out of nodejs express, third party api thats been used is stripe. we are using bcrypt for encryption, cookie session for storing user sessions. cors for cross origin and dotenv.
+    client is built with React-Typescript
+    server is built with Node-Express
+    third party api thats been used is stripe. we are using bcrypt for encryption, cookie session for storing user sessions. cors for cross origin and dotenv.
 
 ### CheckList
 - [x] Produkter ska listas på en sida. 
