@@ -1,4 +1,6 @@
-{
+[
+  {
     "email": "pontus@live.com",
-    "password": "123456"
-}
+    "password": "$2b$10$WcPzuByLvuQk2SztbYIYdudS7DPUKyzpIJy9imLoq5mnf9hmVD/BW"
+  }
+]

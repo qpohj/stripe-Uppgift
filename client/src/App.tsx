@@ -1,21 +1,26 @@
-import { Route, Routes } from "react-router-dom";
-import Confirmation from "./components/Confirmation";
-import Login from "./components/Login";
-import NotFound from "./components/NotFound";
-import Payment from "./components/Payment";
-import ShoppingCart from "./components/ShoppingCart";
+import { ErrorBoundary } from "react-error-boundary";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./views/Home";
+import LoginPage from "./views/LoginPage";
+import NotFound from "./views/NotFound";
+import ShoppingPage from "./views/ShoppingPage";
 
 const App = () => {
 
 
+
   return (
-    <Routes>
-      <Route path="client/src/components/Login.tsx" element={<Login />} />
-      <Route path="/payment" element={<Payment />} />
-      <Route path="/confirmation" element={<Confirmation />} />
-      <Route path="/shopping-cart" element={<ShoppingCart />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <BrowserRouter>
+      <ErrorBoundary fallback={<div>Something went wrong...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/loginform" element={<LoginPage />} />
+          <Route path="/shop/products" element={<ShoppingPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ErrorBoundary>
+    </BrowserRouter>
+
   );
 };
 
