@@ -1,58 +1,65 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import ProductList from "../components/ProductList"
-import LoginPage from "./LoginPage"
+import { useState, useEffect } from "react";
+
+interface productData {
+    id: string;
+    image: string;
+    name: string;
+    price: number;
+}
+
+
+interface stripeProductData {
+    images: string,
+    name: string,
+    default_price: { id: string, unit_amount: number }
+}
+
 
 const Home = () => {
-    // check if user is logged in with a session.
-    // if not present a login and register button. 
-    // that will take them to either register screen or login screen.
+    const [products, setProducts] = useState<productData[]>([]);
 
-    // Check if user is authenticated with a session.
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const navigate = useNavigate()
 
-    // Function to handle user authentication.
-    const handleAuthentication = (status) => {
-        setIsAuthenticated(status);
-    };
+    const getAllProducts = async () => {
+        const fetchData = await fetch(
+            "http://localhost:3000/api/stripe/get-all-products",
+            {
+                method: "GET",
+            }
+        );
+        const items = await fetchData.json();
+        return items;
+    }
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                // Simulated fetching user data. You should replace this with your actual API call.
-                const response = await fetch("http://localhost:3000/users");
-                if (!response.ok) {
-                    throw new Error("User not found");
-                }
-                // If user is found, set isAuthenticated to true
-                setIsAuthenticated(true);
-            } catch (error) {
-                // If no user is found, navigate to the login form
-                navigate("/loginform")
-                console.error("Error fetching user:", error.message);
-                setIsAuthenticated(false);
-            }
-        };
+        const fetchData = async () => {
 
-        fetchUserData();
+            const items = await getAllProducts();
+            console.log(items)
+
+            setProducts(
+                items.map((productData: stripeProductData) => ({
+                    id: productData.default_price.id,
+                    name: productData.name,
+                    image: productData.images[0],
+                    price: productData.default_price.unit_amount,
+                }))
+            );
+        };
+        fetchData();
     }, []);
 
-
-
-
-
-
+    
     return (
         <div>
-            <Header />
-            {isAuthenticated ? <ProductList /> : <LoginPage />}
-            <Footer />
+            {products.map((product, index) => (
+                <div key={index}>
+                    {/* Render each product item here */}
+                    <h3>{product.name}</h3>
+                    <p>Price: ${product.price}</p>
+                    {/* Add more details as needed */}
+                </div>
+            ))}
         </div>
-
-
     )
 }
 

@@ -1,0 +1,24 @@
+GET http://localhost:3000/api/stripe/get-all-products
+
+
+###
+POST http://localhost:3000/api/stripe/get-product-with-id
+Content-Type: application/json; charset=utf-8
+
+{
+    "id": "prod_Ptji5iaTxUTGgl"
+}
+###
+POST http://localhost:3000/api/stripe/create-checkout-session
+Content-Type: application/json; charset=utf-8
+
+{
+
+}
+###
+POST http://localhost:3000/api/stripe/retrieve-checkout-session
+Content-Type: application/json; charset=utf-8
+
+{
+    
+}
